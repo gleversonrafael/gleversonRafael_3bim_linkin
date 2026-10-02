@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users</title>
+    <link rel="stylesheet" href="./account.css">
+    <link rel="stylesheet" href="../menu/menu.css">
+    <link rel="shortcut icon" href="../../references/icon-manage-account.svg" type="image/svg">
+
+</head>
+
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Manage Users</h1>
+            <div class="search-container">
+                <input type="text" id="searchUsername" placeholder="Search by username">
+                <button type="button" id="btnBuscar" class="btn-search">Search</button>
+            </div>
+        </div>
+        <nav class="action-bar">
+            <button type="button" id="btnIncluir" class="btn-pill btn-primary">+ Add</button>
+            <button type="button" id="btnAlterar" class="btn-pill btn-secondary" style="display: none;">✏️ Edit</button>
+            <button type="button" id="btnExcluir" class="btn-pill btn-danger" style="display: none;">🗑️ Delete</button>
+            <button type="button" id="btnSalvar" class="btn-pill btn-save" style="display: none;">✓ Save</button>
+            <button type="button" id="btnCancelar" class="btn-pill btn-cancel">✕ Cancel</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <form id="accountForm">
+                <div class="form-grid">
+                    <!-- User Data Column -->
+                    <div class="form-col">
+                        <h2>User Data</h2>
+                        <p class="subtitle">Update user information</p>
+
+                        <div class="form-group">
+                            <label for="unique_username">Unique Username</label>
+                            <input type="text" id="unique_username" name="unique_username" placeholder="sarah_k" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="account_name">Name</label>
+                            <input type="text" id="account_name" name="account_name" placeholder="Sarah Kim" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="account_email">Email</label>
+                            <input type="email" id="account_email" name="account_email" placeholder="sarah.kim@example.com" required>
+                        </div>
+                    </div>
+
+                    <!-- Admin Privileges Column (1:1 Relationship with APP_ADMIN) -->
+                    <div class="form-col">
+                        <h2>Admin Privileges</h2>
+                        <p class="subtitle">Toggle permissions for this user</p>
+
+                        <div class="privilege-card">
+                            <span>Can Manage Users</span>
+                            <label class="switch">
+                                <input type="checkbox" id="admin_canManageUsers" name="admin_canManageUsers">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="privilege-card">
+                            <span>Can Manage Posts</span>
+                            <label class="switch">
+                                <input type="checkbox" id="admin_canManagePosts" name="admin_canManagePosts">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <!-- Users Table Section -->
+        <section class="list-section">
+            <div class="list-header">
+                <h2>Users (<span id="userCount">0</span>)</h2>
+            </div>
+
+            <div class="table-container">
+                <table id="accountsTable">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Can Manage Users</th>
+                            <th>Can Manage Posts</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="accountsTableBody">
+                        <!-- Data dynamically loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-footer">
+                <span id="paginationInfo">Showing 0-0 of 0 users</span>
+                <div class="pagination-controls">
+                    <button type="button" class="btn-page" disabled>&lt; Prev</button>
+                    <button type="button" class="btn-page active">1</button>
+                    <button type="button" class="btn-page" disabled>Next &gt;</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <div id="messageContainer" class="message-container"></div>
+
+    <script src="./account.js" defer></script>
+    <script src="../menu/menu.js"></script>
+
+
+</body>
+
+</html>

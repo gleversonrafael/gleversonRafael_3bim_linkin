@@ -1,0 +1,86 @@
+/* Sidebar Menu Layout */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 245px;
+    border-right: 1px solid #dbdbdb;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 12px 20px 12px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logo-container {
+    padding: 12px 12px 30px 12px;
+}
+
+.brand-logo {
+    height: 48px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: #000000;
+    border-radius: 8px;
+    transition: background-color 0.2s ease, font-weight 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-link:hover {
+    background-color: #f2f2f2;
+}
+
+.nav-link.active {
+    font-weight: 700;
+}
+
+.nav-icon-container {
+    width: 24px;
+    height: 24px;
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.nav-text {
+    font-size: 16px;
+    line-height: 24px;
+    display: inline-block;
+    color: #000000;
+}
+
+body.has-sidebar {
+    padding-left: 245px;
+}
