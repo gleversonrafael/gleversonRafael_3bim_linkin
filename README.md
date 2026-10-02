@@ -75,3 +75,68 @@ NomeDoAluno_3bim_Linkin/
 ├── references/                 # Logos, ícones e assets estáticos
 ├── package.json
 └── README.md
+
+```
+### 3.3 ERD
+![ERD](references/erd.png)
+
+# 4. Guia de Execução
+
+## Pré-requisitos
+
+* Node.js (v18 ou superior instalado)
+* PostgreSQL instalado e em execução na máquina local
+
+## Passo 1: Configuração do Banco de Dados (PostgreSQL)
+
+1. Abra o pgAdmin ou o terminal interativo `psql`.
+2. Crie um banco de dados chamado `linkin_db`:
+
+```sql
+   CREATE DATABASE linkin_db;
+```
+
+3. Conecte-se ao banco `linkin_db`.
+4. Execute o script DDL em `sql-files/create.sql` para criar as tabelas.
+5. Execute o script DML em `sql-files/insert.sql` para realizar a carga inicial dos dados.
+
+## Passo 2: Configuração das Variáveis de Ambiente (`.env`)
+
+Na pasta raiz do projeto (ou dentro de `backend/`), crie ou edite o arquivo `.env` com as suas credenciais do PostgreSQL:
+
+```env
+PORT=3001
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=sua_senha_aqui
+DB_NAME=linkin_db
+```
+
+## Passo 3: Instalação das Dependências
+
+No terminal, na raiz do projeto, execute:
+
+```bash
+npm install
+```
+
+## Passo 4: Inicialização do Servidor (Back-End)
+
+Para iniciar o servidor em modo de desenvolvimento com `nodemon`:
+
+```bash
+npm run dev
+```
+
+Ou em modo padrão com `node`:
+
+```bash
+npm start
+```
+
+O servidor estará ativo em `http://localhost:3001`.
+
+## Passo 5: Acesso ao Front-End
+
+Abra o arquivo `index.html` localizado na raiz do projeto no seu navegador (ou via Live Server no VS Code). Ele redirecionará automaticamente para `frontend/home/home.html`.
